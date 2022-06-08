@@ -3,11 +3,12 @@ package com.dongeul.composelayoutstepsample
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.compose.foundation.layout.fillMaxSize
+import androidx.compose.foundation.layout.Column
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Surface
 import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.tooling.preview.Preview
 import com.dongeul.composelayoutstepsample.ui.theme.ComposeLayoutStepSampleTheme
@@ -19,25 +20,32 @@ class MainActivity : ComponentActivity() {
             ComposeLayoutStepSampleTheme {
                 // A surface container using the 'background' color from the theme
                 Surface(
-                    modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    Greeting("Android")
+                    Column {
+                        PhotographerCard()
+                        Surface(modifier = Modifier.align(Alignment.CenterHorizontally)) {
+                            LayoutCodeLab()
+                        }
+
+                    }
+
                 }
             }
         }
     }
 }
 
+
 @Composable
-fun Greeting(name: String) {
-    Text(text = "Hello $name!")
+fun LayoutCodeLab(){
+    Text(text = "Hi there")
 }
 
-@Preview(showBackground = true)
+@Preview
 @Composable
-fun DefaultPreview() {
+fun layoutCodelabPreview(){
     ComposeLayoutStepSampleTheme {
-        Greeting("Android")
+        LayoutCodeLab()
     }
 }
