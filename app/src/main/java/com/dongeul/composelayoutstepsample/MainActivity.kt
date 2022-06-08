@@ -4,7 +4,12 @@ import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.rememberLazyListState
+import androidx.compose.foundation.rememberScrollState
+import androidx.compose.foundation.verticalScroll
 import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Face
@@ -23,17 +28,18 @@ class MainActivity : ComponentActivity() {
         setContent {
             ComposeLayoutStepSampleTheme {
                 // A surface container using the 'background' color from the theme
-                Surface(
-                    color = MaterialTheme.colors.background
-                ) {
-                    Column {
-                        Surface(modifier = Modifier.align(Alignment.CenterHorizontally)) {
-                            LayoutCodeLab()
-                        }
-
-                    }
-
-                }
+//                Surface(
+//                    color = MaterialTheme.colors.background
+//                ) {
+//                    Column {
+//                        Surface(modifier = Modifier.align(Alignment.CenterHorizontally)) {
+//                            LayoutCodeLab()
+//                        }
+//
+//                    }
+//
+//                }
+                SimpleList()
             }
         }
     }
@@ -85,5 +91,15 @@ fun BodyContent(modifier: Modifier=Modifier) {
 fun layoutCodelabPreview() {
     ComposeLayoutStepSampleTheme {
         LayoutCodeLab()
+    }
+}
+
+@Composable
+fun SimpleList(){
+    val scrollState = rememberLazyListState()
+    LazyColumn(state = scrollState, modifier = Modifier.fillMaxSize()) {
+        items(100){
+            Text(text = "Item #$it")
+        }
     }
 }
