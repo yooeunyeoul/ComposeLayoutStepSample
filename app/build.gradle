@@ -65,4 +65,5 @@ dependencies {
 
     //compose grid
     implementation "androidx.compose.foundation:foundation:1.2.0-beta03"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-compose:2.4.1"
 }

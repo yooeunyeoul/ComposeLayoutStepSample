@@ -22,6 +22,7 @@ import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
 import com.dongeul.composelayoutstepsample.ui.theme.ComposeLayoutStepSampleTheme
+import com.dongeul.composelayoutstepsample.wellness.WallnessScreen
 import kotlinx.coroutines.launch
 
 class MainActivity : ComponentActivity() {
@@ -29,7 +30,12 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
         setContent {
             ComposeLayoutStepSampleTheme {
-                MySootheApp()
+                Surface(
+                    modifier = Modifier.fillMaxSize(),
+                    color = MaterialTheme.colors.background
+                ) {
+                    WallnessScreen()
+                }
             }
         }
     }
