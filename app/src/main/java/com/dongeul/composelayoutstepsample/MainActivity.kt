@@ -21,6 +21,9 @@ import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
+import com.dongeul.composelayoutstepsample.autoScrolled.sample.model.Feature
+import com.dongeul.composelayoutstepsample.autoScrolled.sample.ui.AutoScrollingLazyRow
+import com.dongeul.composelayoutstepsample.autoScrolled.sample.ui.FeatureTile
 import com.dongeul.composelayoutstepsample.ui.theme.ComposeLayoutStepSampleTheme
 import com.dongeul.composelayoutstepsample.wellness.WallnessScreen
 import kotlinx.coroutines.launch
@@ -34,7 +37,20 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    WallnessScreen()
+                    AutoScrollingLazyRow(
+                        list = listOf(
+                            Feature(R.drawable.fc2_nature_meditations, "아무개"),
+                            Feature(R.drawable.fc2_nature_meditations, "아무개"),
+                            Feature(R.drawable.fc2_nature_meditations, "아무개"),
+                            Feature(R.drawable.fc2_nature_meditations, "아무개"),
+                            Feature(R.drawable.fc2_nature_meditations, "아무개"),
+                            Feature(R.drawable.fc2_nature_meditations, "아무개")
+
+
+                        )
+                    ) {
+                        FeatureTile(feature = it)
+                    }
                 }
             }
         }
