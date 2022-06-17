@@ -3,6 +3,7 @@ package com.dongeul.composelayoutstepsample
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
+import androidx.activity.viewModels
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.foundation.lazy.LazyColumn
@@ -21,38 +22,37 @@ import androidx.compose.ui.modifier.modifierLocalConsumer
 import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import coil.compose.rememberImagePainter
+import com.dongeul.composelayoutstepsample.airplane.model.ExploreModel
+import com.dongeul.composelayoutstepsample.airplane.ui.MainScreen
+import com.dongeul.composelayoutstepsample.airplane.viewmodel.MainViewModel
 import com.dongeul.composelayoutstepsample.autoScrolled.sample.model.Feature
 import com.dongeul.composelayoutstepsample.autoScrolled.sample.ui.AutoScrollingLazyRow
 import com.dongeul.composelayoutstepsample.autoScrolled.sample.ui.FeatureTile
 import com.dongeul.composelayoutstepsample.ui.theme.ComposeLayoutStepSampleTheme
 import com.dongeul.composelayoutstepsample.wellness.WallnessScreen
+import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
 
+@AndroidEntryPoint
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
         setContent {
             ComposeLayoutStepSampleTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    AutoScrollingLazyRow(
-                        list = listOf(
-                            Feature(R.drawable.fc2_nature_meditations, "아무개"),
-                            Feature(R.drawable.fc2_nature_meditations, "아무개"),
-                            Feature(R.drawable.fc2_nature_meditations, "아무개"),
-                            Feature(R.drawable.fc2_nature_meditations, "아무개"),
-                            Feature(R.drawable.fc2_nature_meditations, "아무개"),
-                            Feature(R.drawable.fc2_nature_meditations, "아무개")
-                        )
-                    ) {
-                        FeatureTile(feature = it)
-                    }
+                    MainScreen(onExploreItemClicked = {
+
+                    })
                 }
             }
         }
+
     }
 }
+
 
 
