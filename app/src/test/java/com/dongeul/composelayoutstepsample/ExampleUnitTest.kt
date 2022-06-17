@@ -14,4 +14,19 @@ class ExampleUnitTest {
     fun addition_isCorrect() {
         assertEquals(4, 2 + 2)
     }
+
+
+    fun factorial(n:Int, acc:Int):Int{
+        return if (n <= 0) {
+            acc
+        } else {
+            factorial(n-1,n*acc)
+        }
+    }
+
+    @Test
+    fun factorialTest(){
+        factorial(10, 1)
+    }
+
 }

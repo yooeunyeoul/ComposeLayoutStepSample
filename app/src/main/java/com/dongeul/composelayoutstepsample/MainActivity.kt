@@ -45,8 +45,6 @@ class MainActivity : ComponentActivity() {
                             Feature(R.drawable.fc2_nature_meditations, "아무개"),
                             Feature(R.drawable.fc2_nature_meditations, "아무개"),
                             Feature(R.drawable.fc2_nature_meditations, "아무개")
-
-
                         )
                     ) {
                         FeatureTile(feature = it)
