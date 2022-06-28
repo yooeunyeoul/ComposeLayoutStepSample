@@ -28,6 +28,7 @@ import com.dongeul.composelayoutstepsample.airplane.viewmodel.MainViewModel
 import com.dongeul.composelayoutstepsample.autoScrolled.sample.model.Feature
 import com.dongeul.composelayoutstepsample.autoScrolled.sample.ui.AutoScrollingLazyRow
 import com.dongeul.composelayoutstepsample.autoScrolled.sample.ui.FeatureTile
+import com.dongeul.composelayoutstepsample.navigating.RallyApp
 import com.dongeul.composelayoutstepsample.ui.theme.ComposeLayoutStepSampleTheme
 import com.dongeul.composelayoutstepsample.wellness.WallnessScreen
 import dagger.hilt.android.AndroidEntryPoint
@@ -44,9 +45,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    MainScreen(onExploreItemClicked = {
-
-                    })
+                    RallyApp()
                 }
             }
         }
