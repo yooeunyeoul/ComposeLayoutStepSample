@@ -1,11 +1,8 @@
 package com.dongeul.composelayoutstepsample.navigating
 
-import androidx.compose.foundation.layout.Box
-import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
 import androidx.compose.material.MaterialTheme
 import androidx.compose.material.Scaffold
-import androidx.compose.material.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Modifier
 import androidx.navigation.NavHostController
@@ -20,7 +17,6 @@ import com.dongeul.composelayoutstepsample.navigating.accounts.AccountsBody
 import com.dongeul.composelayoutstepsample.navigating.accounts.SingleAccountBody
 import com.dongeul.composelayoutstepsample.navigating.bills.BillsBody
 import com.dongeul.composelayoutstepsample.navigating.components.RallyTabRow
-import com.dongeul.composelayoutstepsample.navigating.data.Bill
 import com.dongeul.composelayoutstepsample.navigating.data.UserData
 import com.dongeul.composelayoutstepsample.navigating.overview.OverviewBody
 
@@ -58,8 +54,8 @@ fun RallyApp() {
                         },
                         onClickSeeAllBills = {
                             navController.navigate(RallyScreen.Bills.name)
-                        }, onAccountClick = {name->
-                            navigateToSingleAccount(navController,name)
+                        }, onAccountClick = { name ->
+                            navigateToSingleAccount(navController, name)
                         })
 
                 }
@@ -73,7 +69,11 @@ fun RallyApp() {
                         })
                 }
                 composable(RallyScreen.Bills.name) {
-                    BillsBody(bills = UserData.bills)
+                    BillsBody(
+                        bills = UserData.bills,
+                        onClickBill = {
+
+                        })
                 }
                 val accountsName = RallyScreen.Accounts.name
                 composable(

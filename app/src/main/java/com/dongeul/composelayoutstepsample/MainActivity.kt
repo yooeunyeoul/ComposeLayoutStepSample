@@ -14,8 +14,7 @@ import androidx.compose.material.*
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.filled.Face
 import androidx.compose.material.icons.filled.Favorite
-import androidx.compose.runtime.Composable
-import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.runtime.*
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.modifier.modifierLocalConsumer
@@ -29,10 +28,15 @@ import com.dongeul.composelayoutstepsample.autoScrolled.sample.model.Feature
 import com.dongeul.composelayoutstepsample.autoScrolled.sample.ui.AutoScrollingLazyRow
 import com.dongeul.composelayoutstepsample.autoScrolled.sample.ui.FeatureTile
 import com.dongeul.composelayoutstepsample.navigating.RallyApp
+import com.dongeul.composelayoutstepsample.ui.dialog.AlertDialogSample
+import com.dongeul.composelayoutstepsample.ui.dialog.CustomAlertDialog
+import com.dongeul.composelayoutstepsample.ui.dialog.EmailVerifyLinkNoticeDialog
+import com.dongeul.composelayoutstepsample.ui.dialog.KotlinWorldDialog
 import com.dongeul.composelayoutstepsample.ui.theme.ComposeLayoutStepSampleTheme
 import com.dongeul.composelayoutstepsample.wellness.WallnessScreen
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.launch
+import kotlin.jvm.internal.Intrinsics
 
 @AndroidEntryPoint
 class MainActivity : ComponentActivity() {
@@ -40,18 +44,28 @@ class MainActivity : ComponentActivity() {
         super.onCreate(savedInstanceState)
 
         setContent {
+            var state by remember {
+                mutableStateOf(true)
+            }
+
             ComposeLayoutStepSampleTheme {
                 Surface(
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    RallyApp()
+                    EmailVerifyLinkNoticeDialog(
+                        visible = state,
+                        onDismissRequest = {
+                            state = false
+                        })
                 }
+
             }
         }
-
     }
+
 }
+
 
 
 

@@ -10,8 +10,14 @@ import com.dongeul.composelayoutstepsample.navigating.components.BillRow
 import com.dongeul.composelayoutstepsample.navigating.components.StatementBody
 import com.dongeul.composelayoutstepsample.navigating.data.Bill
 
+
+typealias OnClickBill = (Bill) -> Unit
+
 @Composable
-fun BillsBody(bills: List<Bill>) {
+fun BillsBody(
+    bills: List<Bill>,
+    onClickBill: OnClickBill = {}
+) {
     StatementBody(
         modifier = Modifier.clearAndSetSemantics { contentDescription = "Bills" },
         items = bills,
