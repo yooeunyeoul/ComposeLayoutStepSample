@@ -28,6 +28,7 @@ import com.dongeul.composelayoutstepsample.autoScrolled.sample.model.Feature
 import com.dongeul.composelayoutstepsample.autoScrolled.sample.ui.AutoScrollingLazyRow
 import com.dongeul.composelayoutstepsample.autoScrolled.sample.ui.FeatureTile
 import com.dongeul.composelayoutstepsample.navigating.RallyApp
+import com.dongeul.composelayoutstepsample.shoppingmall.ShoppingMallApp
 import com.dongeul.composelayoutstepsample.ui.dialog.AlertDialogSample
 import com.dongeul.composelayoutstepsample.ui.dialog.CustomAlertDialog
 import com.dongeul.composelayoutstepsample.ui.dialog.EmailVerifyLinkNoticeDialog
@@ -53,11 +54,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colors.background
                 ) {
-                    EmailVerifyLinkNoticeDialog(
-                        visible = state,
-                        onDismissRequest = {
-                            state = false
-                        })
+                    ShoppingMallApp()
                 }
 
             }

@@ -25,4 +25,8 @@
     <string name="bills">Bills</string>
     <string name="sort">Sort</string>
     <string name="see_all">SEE ALL</string>
+    <string name="home_main">MAIN</string>
+    <string name="home_search">SEARCH</string>
+    <string name="home_cart">CART</string>
+    <string name="home_profile">PROFILE</string>
 </resources>
