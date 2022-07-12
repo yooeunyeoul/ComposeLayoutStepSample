@@ -1,24 +1,19 @@
 package com.dongeul.composelayoutstepsample.airplane.ui
 
-import android.annotation.SuppressLint
-import android.graphics.fonts.FontStyle
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.*
 import androidx.compose.material.*
 import androidx.compose.runtime.*
-import androidx.compose.ui.Alignment
 import androidx.compose.ui.Alignment.Companion.CenterVertically
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.res.painterResource
-import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
-import com.dongeul.composelayoutstepsample.airplane.model.ExploreModel
-import com.dongeul.composelayoutstepsample.airplane.viewmodel.MainViewModel
 import androidx.lifecycle.viewmodel.compose.viewModel
 import com.dongeul.composelayoutstepsample.R
+import com.dongeul.composelayoutstepsample.airplane.model.ExploreModel
+import com.dongeul.composelayoutstepsample.airplane.viewmodel.MainViewModel
 
 typealias OnExploreItemClicked = (ExploreModel) -> Unit
 
@@ -31,7 +26,7 @@ enum class CraneScreen {
 fun CraneHome(
     onExploreItemClicked: OnExploreItemClicked,
     modifier: Modifier = Modifier,
-    viewModel: MainViewModel = androidx.lifecycle.viewmodel.compose.viewModel()
+    viewModel: MainViewModel = viewModel()
 ) {
     val scaffoldState = rememberScaffoldState()
     Scaffold(

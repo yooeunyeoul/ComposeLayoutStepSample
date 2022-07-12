@@ -32,6 +32,7 @@ class MainViewModel @Inject constructor(
 
     init {
         _suggestedDestinations.value = destinationsRepository.destinations
+        destinationsRepository.checkHttpClient()
     }
 
     fun updatePeople(people: Int) {
