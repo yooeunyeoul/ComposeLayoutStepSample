@@ -20,6 +20,7 @@ import javax.inject.Singleton
 @Module
 @InstallIn(SingletonComponent::class)
 object Module {
+    const val baseUrl = "66025bca-c6d6-4b32-9a78-04149541d075.mock.pstmn.io"
 
     @Singleton
     @Provides
@@ -27,13 +28,13 @@ object Module {
         return HttpClient(CIO) {
             defaultRequest {
                 headers {
-                    append("Accept", "application/json")
+//                    append("Accept", "application/json")
                     append("Content-type", "application/json")
 //                    append(HttpHeaders.Authorization, "Client-ID id 값")
                 }
                 url {
-                    protocol = URLProtocol.HTTP
-                    host = "api.unsplash.com"
+//                    protocol = URLProtocol.HTTPS
+//                    host = baseUrl
                 }
             }
             install(JsonFeature) {
@@ -41,7 +42,7 @@ object Module {
                     ignoreUnknownKeys = true //모델에 없고, json 에 있는경우 해당 key 무시
                     prettyPrint = true
                     isLenient = true // "" 따옴표 잘못된건 무시하고 처리
-                    encodeDefaults = true // null 인 값도 json 에 포함 시킨다.
+                    encodeDefaults = false // null 인 값도 json 에 포함 시킨다.
                 })
             }
             install(Logging) {

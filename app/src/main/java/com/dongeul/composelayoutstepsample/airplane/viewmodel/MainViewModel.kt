@@ -1,5 +1,6 @@
 package com.dongeul.composelayoutstepsample.airplane.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.dongeul.composelayoutstepsample.airplane.di.DongeulPatcher
@@ -7,6 +8,7 @@ import com.dongeul.composelayoutstepsample.airplane.model.ExploreModel
 import com.dongeul.composelayoutstepsample.airplane.repository.DestinationsRepository
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.CoroutineDispatcher
+import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.launch
@@ -32,7 +34,19 @@ class MainViewModel @Inject constructor(
 
     init {
         _suggestedDestinations.value = destinationsRepository.destinations
-        destinationsRepository.checkHttpClient()
+        registerLogin()
+
+    }
+
+    fun registerLogin() {
+        viewModelScope.launch(Dispatchers.IO) {
+            try {
+                val response = destinationsRepository.registerLogin()
+                Log.d("registerLogin",response.toString())
+            } catch (th: Throwable) {
+                Log.e("registerLogin",th.message?:"")
+            }
+        }
     }
 
     fun updatePeople(people: Int) {
